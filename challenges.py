@@ -23,9 +23,11 @@ def enterData():
     s = """<!DOCTYPE html>
 <html>
 <body>
-<form>
+<form action = "/result" method = "POST">
   INGREDIENT:<br>
-  <input type="text" name="ingredient" value="eggs">
+  <input type="text" name="ingredient1" value="eggs">
+  <input type="text" name="ingredient2" value="milk">
+
   <br>
   <input type="submit" value="Submit">
 </form>
@@ -40,8 +42,12 @@ def enterData():
 ## to display recipes for the ingredient entered
 @app.route('/result',methods = ['POST', 'GET'])
 def displayData():
-    if request.method == 'POST':
-        pass
+    if request.method == 'POST': #Since we habe two methods, we need to specify which we are using
+        data = request.form['ingredient1'] #input name
+        data2 = request.form['ingredient2'] #input name
+        x = data + ', ' + data2
+        return x
+    return 'Form data is unavailable'
 
 ## Task 4
 ## Note : Since this is a dyanmic URL, recipes function should recieve a paramter called `ingrdient`
