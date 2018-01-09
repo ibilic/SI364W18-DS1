@@ -5,7 +5,7 @@ app.debug = True
 
 @app.route('/')
 def index():
-    return '<h1>Hello World!</h1>'
+    return '<h1>Welcome to</h1>'
 
 # Task 2
 # Write a return statement such that it displays 'Welcome to <course_name>'
@@ -13,7 +13,8 @@ def index():
 # Remember to get rid of the pass statement
 @app.route('/course/<course>')
 def course(course):
-   pass
+    return '<h1>Welcome to {}</h1>'.format(course)
+
 
 # Task 3.1
 # Edit the HTML form such that form data is sent to localhost:5000/result using POST method
@@ -43,7 +44,7 @@ def displayData():
         pass
 
 ## Task 4
-## Note : Since this is a dyanmic URL, recipes function should recieve a paramter called `ingrdient` 
+## Note : Since this is a dyanmic URL, recipes function should recieve a paramter called `ingrdient`
 @app.route('/recipe/<ingredient>')
 def recipes():
     pass
